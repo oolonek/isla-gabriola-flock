@@ -17,18 +17,15 @@ A mass-spectrometry dataset describes samples and the signals measured from them
 This is the **checked-in toy job's selected order**, not an automatic workflow for every dataset. The ordinary MassIVE example selects **annotation only**; its `--topN` example selects all seven stages. Each job needs paths and inputs configured on your own machine.
 
 ```mermaid
-flowchart TB
-  B["Before Mato: Sapayoa fetches data; a person extracts a ZIP if needed"]
-  subgraph RUN["Mato run: seven selected toy stages"]
-    V["Machaca: validate files"] --> I["Peregrino: ingest records"]
-    I --> T["Cunaguaro: resolve taxa"]
-    T --> P["Picoto: prepare features and MS2"]
-    P --> R["Peregrino: register processed spectra"]
-    R --> H["Hocofaisan: annotate positive MS2"]
-    H --> C["Cunaguaro: resolve candidate chemicals"]
+flowchart LR
+  B["Before Mato:<br/>Sapayoa fetch; extract ZIP if needed"]
+  subgraph RUN["Mato run: seven selected toy stages, in order"]
+    direction LR
+    A["Machaca validate<br/>Peregrino ingest<br/>Cunaguaro taxon enrich"] --> P["Picoto features + MS2<br/>Peregrino register"]
+    P --> H["Hocofaisan positive-MS2 annotate<br/>Cunaguaro chemical enrich"]
   end
-  B --> V
-  C --> G["After Mato: a person may run Peregrino kg export"]
+  B --> A
+  H --> G["After Mato, if wanted:<br/>manual Peregrino kg export"]
 ```
 
 ![Source files, per-job evidence records, reusable lookups and optional graph export](data-and-results.svg)
