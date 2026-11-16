@@ -17,10 +17,9 @@ A mass-spectrometry dataset describes samples and the signals measured from them
 This is the **checked-in toy job's selected order**, not an automatic workflow for every dataset. The ordinary MassIVE example selects **annotation only**; its `--topN` example selects all seven stages. Each job needs paths and inputs configured on your own machine.
 
 ```mermaid
-flowchart TD
-  F["Sapayoa fetches a public dataset"] --> X["Person extracts a Zenodo ZIP if needed"]
+flowchart TB
+  B["Before Mato: Sapayoa fetches data; a person extracts a ZIP if needed"]
   subgraph RUN["Mato run: seven selected toy stages"]
-    direction TB
     V["Machaca: validate files"] --> I["Peregrino: ingest records"]
     I --> T["Cunaguaro: resolve taxa"]
     T --> P["Picoto: prepare features and MS2"]
@@ -28,15 +27,13 @@ flowchart TD
     R --> H["Hocofaisan: annotate positive MS2"]
     H --> C["Cunaguaro: resolve candidate chemicals"]
   end
-  X --> V
-  C --> G["Person runs Peregrino kg export, if wanted"]
-  W["Separate preparation: Mato indexes refresh"] -. "shared Wikidata snapshots" .-> T
-  W -. "shared Wikidata snapshots" .-> C
-  L["Supplied reference MGF and LOTUS metadata"] -.-> H
-  H -. "calls library" .-> S["spectral-matcher"]
+  B --> V
+  C --> G["After Mato: a person may run Peregrino kg export"]
 ```
 
-The [data-and-results picture](data-and-results.svg) shows where inputs and outputs live; it is **not** another sequence of commands. The database and Picoto outputs belong to a configured job; the lookup snapshots can be shared across jobs. A scored hit remains a candidate even when an external identifier is found. SIRIUS and negative-mode annotation are **not** part of this run.
+![Source files, per-job evidence records, reusable lookups and optional graph export](data-and-results.svg)
+
+The picture shows where inputs and outputs live; it is **not** another sequence of commands. The database and Picoto outputs belong to a configured job; the lookup snapshots can be shared across jobs but must be refreshed separately with Mato's `indexes refresh`. Annotation needs a supplied reference library and LOTUS metadata. A scored hit remains a candidate even when an external identifier is found. SIRIUS and negative-mode annotation are **not** part of this run.
 
 ## Start here
 
