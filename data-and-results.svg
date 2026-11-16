@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 438" role="img" aria-labelledby="title description">
+  <title id="title">Isla Gabriola flock: inputs and outputs</title>
+  <desc id="description">Public files downloaded by Sapayoa are made available as extracted metadata and raw spectra when extraction is needed. A configured job records evidence in its own SQLite database and Picoto files. A separate Peregrino export may create a local N-Quads graph. An annotation reference library and reusable Wikidata snapshots are prepared separately.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1 9 5 1 9Z" fill="#447783"/>
+    </marker>
+  </defs>
+  <style>
+    svg { font-family: system-ui, sans-serif; }
+    .canvas { fill: #f6f8f8; }
+    .card { fill: #fff; stroke: #9bb7b9; stroke-width: 2; }
+    .output { fill: #ebf5f2; stroke: #6c9b90; }
+    .extra { fill: #eef3f8; stroke: #93a9bd; }
+    .heading { fill: #19353c; font-size: 25px; font-weight: 700; }
+    .sub { fill: #425d62; font-size: 14px; }
+    .label { fill: #19353c; font-size: 17px; font-weight: 700; }
+    .detail { fill: #3d5a60; font-size: 13px; }
+    .flow { stroke: #447783; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    .note { fill: #355e68; font-size: 13px; font-weight: 650; }
+  </style>
+  <rect class="canvas" width="960" height="438" rx="18"/>
+  <text class="heading" x="30" y="42">Where the evidence lives</text>
+  <text class="sub" x="30" y="65">Files and records, not a list of commands · the graph is an optional, separate export</text>
+
+  <path class="flow" d="M234 172 H258"/>
+  <path class="flow" d="M468 172 H492"/>
+  <path class="flow" d="M702 172 H726"/>
+
+  <rect class="card" x="24" y="104" width="210" height="140" rx="13"/>
+  <text class="label" x="40" y="132">Downloaded dataset</text>
+  <text class="detail" x="40" y="163">Public DOI files / ZIP</text>
+  <text class="detail" x="40" y="184">Sapayoa fetch receipts</text>
+  <text class="note" x="40" y="223">Before any Mato run</text>
+
+  <rect class="card" x="258" y="104" width="210" height="140" rx="13"/>
+  <text class="label" x="274" y="132">Available input</text>
+  <text class="detail" x="274" y="163">Sample metadata</text>
+  <text class="detail" x="274" y="184">Raw mzML / mzXML</text>
+  <text class="note" x="274" y="223">Extract ZIP if needed</text>
+
+  <rect class="card output" x="492" y="104" width="210" height="140" rx="13"/>
+  <text class="label" x="508" y="132">Job-specific results</text>
+  <text class="detail" x="508" y="163">SQLite evidence record</text>
+  <text class="detail" x="508" y="184">Picoto MGF + TSV files</text>
+  <text class="note" x="508" y="223">Not a shared index</text>
+
+  <rect class="card output" x="726" y="104" width="210" height="140" rx="13"/>
+  <text class="label" x="742" y="132">Optional export</text>
+  <text class="detail" x="742" y="163">Local N-Quads graph</text>
+  <text class="detail" x="742" y="184">Peregrino kg export</text>
+  <text class="note" x="742" y="223">Separate command</text>
+
+  <text class="sub" x="30" y="291">Prepared separately and supplied to selected stages:</text>
+  <rect class="card extra" x="30" y="308" width="432" height="94" rx="12"/>
+  <text class="label" x="46" y="338">Annotation references</text>
+  <text class="detail" x="46" y="366">Reference-library MGF + LOTUS metadata CSV</text>
+  <text class="detail" x="46" y="385">Supplied to Hocofaisan for positive-mode MS2</text>
+  <rect class="card extra" x="486" y="308" width="444" height="94" rx="12"/>
+  <text class="label" x="502" y="338">Reusable Wikidata snapshots</text>
+  <text class="detail" x="502" y="366">Taxon names + candidate chemical identifiers</text>
+  <text class="detail" x="502" y="385">Refreshed before jobs; read by Cunaguaro</text>
+</svg>
